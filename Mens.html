@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Badminton Collection</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('image/login.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .blur-overlay {
+      backdrop-filter: blur(6px);
+      min-height: 100vh;
+      padding-bottom: 50px;
+    }
+
+    .banner {
+      background: url('img0.jpg') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 20px;
+    }
+
+    .product {
+      background: rgba(255, 255, 255, 0.9);
+      display: inline-block;
+      width: 230px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+      text-align: center;
+      transition: transform 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      margin: 10px 0 5px;
+    }
+
+    .product p {
+      margin: 5px 0;
+      color: #333;
+    }
+
+    .add-btn {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .add-btn:hover {
+      background: #218838;
+    }
+
+    .buy-now-btn {
+      background: #007bff;
+      margin-top: 5px;
+    }
+
+    .buy-now-btn:hover {
+      background: #0056b3;
+    }
+
+    .cart-link {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #343a40;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .cart-link:hover {
+      background: #495057;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blur-overlay">
+    <!-- Cart Shortcut -->
+    <a href="cart.html" class="cart-link">🛒 View Cart</a>
+
+    <!-- Banner -->
+    <div class="banner">Badminton Collection</div>
+
+    <!-- Product List -->
+    <div class="product-container" id="product-list"></div>
+  </div>
+
+  <script>
+    const products = [
+      { name: "Yonex Astrox 100", price: 1299, brand: "Yonex", image: "image/img1.jpg" },
+      { name: "Li-Ning Turbo X", price: 1149, brand: "Li-Ning", image: "image/img2.jpg" },
+      { name: "Victor Brave Sword", price: 999, brand: "Victor", image: "image/img3.jpg" },
+      { name: "Apacs Z-Ziggler", price: 899, brand: "Apacs", image: "image/img8.jpg" },
+      { name: "Ashaway Phantom X", price: 799, brand: "Ashaway", image: "image/img5.jpg" },
+      { name: "Carlton Heritage", price: 749, brand: "Carlton", image: "image/img6.jpg" },
+      { name: "Decathlon Perfly", price: 599, brand: "Decathlon", image: "image/img7.jpeg" }
+    ];
+
+    const container = document.getElementById("product-list");
+
+    products.forEach((product, index) => {
+      container.innerHTML += `
+        <div class="product">
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>Brand: ${product.brand}</p>
+          <p>Price: ₹${product.price}</p>
+          <button class="add-btn" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</button>
+          <button class="add-btn buy-now-btn" onclick='buyNow(${index})'>Buy Now</button>
+        </div>
+      `;
+    });
+
+    function addToCart(product) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const index = cart.findIndex(item => item.name === product.name);
+      if (index !== -1) {
+        cart[index].quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${product.name} added to cart!`);
+    }
+
+    function buyNow(index) {
+      localStorage.setItem("selectedProduct", JSON.stringify(products[index]));
+      window.location.href = "buy.html";
+    }
+  </script>
+</body>
+</html>

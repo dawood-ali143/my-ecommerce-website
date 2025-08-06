@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Eranok Badminton Store 🏸</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('image/back.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .blur-overlay {
+      backdrop-filter: blur(6px);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      font-size: 2.8rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 12px black;
+      margin-bottom: 10px;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin: 20px auto 40px;
+    }
+
+    .search-bar input {
+      padding: 12px 18px;
+      width: 80%;
+      max-width: 500px;
+      font-size: 16px;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      outline: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin: 40px 10px 20px;
+      color: #fff;
+      text-shadow: 2px 2px 10px black;
+      text-align: center;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .section-box {
+      background: rgba(255, 255, 255, 0.95);
+      width: 240px;
+      height: 140px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #333;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .section-box:hover {
+      transform: scale(1.05);
+      background: #f5faff;
+    }
+
+    .section-box i {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #007bff;
+    }
+
+    .box-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .product {
+      background: rgba(255, 255, 255, 0.93);
+      width: 230px;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .product p {
+      margin: 5px 0;
+      color: #444;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .add-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .add-btn:hover {
+      background-color: #218838;
+    }
+
+    .buy-btn {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .buy-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .cart-link {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #343a40;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .cart-link:hover {
+      background: #495057;
+    }
+
+    .icon {
+      margin-right: 6px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blur-overlay">
+    <!-- Cart Button -->
+    <a href="cart.html" class="cart-link"><i class="fas fa-cart-shopping"></i> View Cart</a>
+
+    <!-- Header -->
+    <div class="header">🏸 Welcome to Eranok Badminton Store 🏸</div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search featured products by name, brand, or price..." oninput="filterProducts()">
+    </div>
+
+    <!-- Page Links -->
+    <div class="section-title">Shop by Category</div>
+    <div class="grid">
+      <a href="Mens.html" class="section-box">
+        <div class="box-content"><i class="fas fa-male"></i> Men's Collection</div>
+      </a>
+      <a href="Women.html" class="section-box">
+        <div class="box-content"><i class="fas fa-female"></i> Women's Collection</div>
+      </a>
+      <a href="Kids.html" class="section-box">
+        <div class="box-content"><i class="fas fa-child"></i> Kids Collection</div>
+      </a>
+      <a href="fitness.html" class="section-box">
+        <div class="box-content"><i class="fas fa-dumbbell"></i> Rackets & Shuttles</div>
+      </a>
+    </div>
+
+    <!-- Featured Products -->
+    <div class="section-title">Featured Products</div>
+    <div class="product-container" id="featuredProducts">
+      <!-- Injected by JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      {
+        name: "Pro Smash Racket",
+        price: 1299,
+        brand: "Yonex",
+        image: "image/Racket0.jpg"
+      },
+      {
+        name: "FeatherPro Shuttle",
+        price: 249,
+        brand: "Li-Ning",
+        image: "image/Cock1.webp"
+      },
+      {
+        name: "FeatherFlex Light",
+        price: 999,
+        brand: "Victor",
+        image: "image/Racket2.jpg"
+      }
+    ];
+
+    const productContainer = document.getElementById("featuredProducts");
+
+    function loadProducts() {
+      productContainer.innerHTML = '';
+      products.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "product";
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p><strong>Brand:</strong> ${product.brand}</p>
+          <p><strong>Price:</strong> ₹${product.price}</p>
+          <button class="btn add-btn" onclick="addToCart('${product.name}', ${product.price}, '${product.brand}', '${product.image}')">
+            <i class="fas fa-cart-plus icon"></i>Add to Cart
+          </button>
+          <button class="btn buy-btn" onclick="buyNow('${product.name}', ${product.price}, '${product.brand}', '${product.image}')">
+            <i class="fas fa-bolt icon"></i>Buy Now
+          </button>
+        `;
+        productContainer.appendChild(card);
+      });
+    }
+
+    function addToCart(name, price, brand, image) {
+      const product = { name, price, brand, image };
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const index = cart.findIndex(item => item.name === product.name);
+      if (index !== -1) {
+        cart[index].quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${product.name} added to cart!`);
+    }
+
+    function buyNow(name, price, brand, image) {
+      const product = { name, price, brand, image };
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "buy.html";
+    }
+
+    function filterProducts() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = productContainer.querySelectorAll(".product");
+
+      products.forEach((product, index) => {
+        const match =
+          product.name.toLowerCase().includes(input) ||
+          product.brand.toLowerCase().includes(input) ||
+          product.price.toString().includes(input);
+
+        cards[index].classList.toggle("hidden", !match);
+      });
+    }
+
+    loadProducts();
+  </script>
+
+</body>
+</html>

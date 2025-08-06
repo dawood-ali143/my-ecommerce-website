@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buy Now</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      max-width: 700px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-detail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product-detail img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .product-detail h2 {
+      margin: 15px 0 10px;
+      font-size: 24px;
+    }
+
+    .product-detail p {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .payment-section {
+      margin-top: 30px;
+    }
+
+    .payment-section h3 {
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .bank-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .bank-logos img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 5px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      background: #28a745;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="product-detail">
+    <img id="product-img" src="" alt="Product Image">
+    <h2 id="product-name">Product Name</h2>
+    <p><strong>Brand:</strong> <span id="product-brand"></span></p>
+    <p><strong>Price:</strong> ₹<span id="product-price"></span></p>
+  </div>
+
+  <div class="payment-section">
+    <h3>Choose Your Bank / Payment Method</h3>
+
+    <div class="bank-logos">
+      <img src="https://img.icons8.com/color/48/sbi.png" alt="SBI" />
+      <img src="https://img.icons8.com/color/48/hdfc-bank.png" alt="HDFC" />
+      <img src="https://img.icons8.com/color/48/icici-bank.png" alt="ICICI" />
+      <img src="https://img.icons8.com/color/48/axis-bank.png" alt="Axis" />
+      <img src="https://img.icons8.com/color/48/paytm.png" alt="Paytm" />
+      <img src="https://img.icons8.com/color/48/phonepe.png" alt="PhonePe" />
+      <img src="https://img.icons8.com/color/48/google-pay-india.png" alt="GPay" />
+    </div>
+
+    <label>Payment Method</label>
+    <select>
+      <option>UPI</option>
+      <option>Debit/Credit Card</option>
+      <option>Net Banking</option>
+      <option>Cash on Delivery</option>
+    </select>
+
+    <label>Fake Payment ID / Card Number</label>
+    <input type="text" placeholder="e.g. 1234-5678-9012">
+
+    <label>Your Name</label>
+    <input type="text" placeholder="Full Name">
+
+    <button onclick="fakePay()">Complete Fake Payment</button>
+  </div>
+
+  <div class="footer-note">
+    This is a demo payment page. No real money is involved.
+  </div>
+</div>
+
+<script>
+  const product = JSON.parse(localStorage.getItem("selectedProduct"));
+  if (product) {
+    document.getElementById("product-img").src = product.image;
+    document.getElementById("product-name").innerText = product.name;
+    document.getElementById("product-brand").innerText = product.brand;
+    document.getElementById("product-price").innerText = product.price;
+  }
+
+  function fakePay() {
+    alert("✅ Payment successful (Fake)!\nThank you for purchasing " + product.name + "!");
+    window.location.href = "Mens.html";
+  }
+</script>
+
+</body>
+</html>

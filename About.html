@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SR Badminton House</title>
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .about-section, .contact-section {
+      padding: 30px 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      margin: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section p {
+      text-align: center;
+      color: #333;
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .about-section a {
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    video, img {
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-box {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 20px;
+      background-color: #e8f0fe;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin: 10px 20px;
+      font-size: 16px;
+      color: #1a1a1a;
+    }
+
+    .contact-item i {
+      font-size: 20px;
+      color: #0a58ca;
+      margin-right: 10px;
+    }
+
+    iframe {
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 100%;
+      margin-top: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      .contact-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-item {
+        margin: 8px 0;
+      }
+
+      iframe {
+        height: 250px;
+      }
+
+      .about-section p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>SR Badminton House 🏸</h1>
+    <p>Your ultimate destination for badminton gear and coaching</p>
+  </header>
+
+  <!-- About Section -->
+  <div id="about" class="about-section">
+    <h2><i class="fas fa-shuttlecock"></i> About Us</h2>
+    <p>
+      We are passionate about badminton and committed to providing top-quality sportswear and accessories.
+      At SR Badminton House, our mission is to equip every player, beginner or pro, with the right gear at the best price.
+    </p>
+    <p style="margin-top: 20px;">
+      <a href="about.html">Learn more about our badminton academy →</a>
+    </p>
+  </div>
+
+  <!-- Store Features Section (Video + Image) -->
+  <div class="about-section">
+    <h2><i class="fas fa-store"></i> Explore Our Store</h2>
+    <p>
+      Take a closer look at SR Badminton House through this video and image. Our store offers a wide range of badminton equipment and training.
+    </p>
+
+    <!-- Embedded Video -->
+    <video controls>
+      <source src="image/Video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Store Image -->
+    <img src="image/img.jpg" alt="Inside SR Badminton House">
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact" class="contact-section">
+    <h2><i class="fas fa-address-book"></i> Contact Us</h2>
+
+    <div class="contact-box">
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>8328614053</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span><a href="mailto:srbadmintonhouse@gmail.com">srbadmintonhouse@gmail.com</a></span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>LB Nagar, Kakani Rd, Guntur, AP</span>
+      </div>
+    </div>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119162.29755370354!2d80.3734947!3d16.3066525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a75fd3b7d78a3%3A0x97b3c29dbf62ffb8!2sSR%20BADMINTON%20HOUSE!5e0!3m2!1sen!2sin!4v1722071430455!5m2!1sen!2sin"
+      height="350"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPEhtml>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dawood's Badminton Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url("image/racket.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .container > div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .container p {
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 8px 10px;
+      margin: 5px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .shop {
+      background-color: #111;
+      color: white;
+    }
+
+    .search-btn {
+      background-color: #006400;
+      color: white;
+    }
+
+    .signin-btn {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    .link-btn {
+      background: none;
+      border: none;
+      color: #add8e6;
+      font-size: 15px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 60px 20px;
+      width: 90%;
+      max-width: 850px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-box h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero-box p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-box .shop {
+      font-size: 16px;
+      padding: 12px 25px;
+    }
+
+    .about-section {
+      background-color: white;
+      color: black;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .about-section p {
+      font-size: 16px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    #contact {
+      background-color: #f5f5f5;
+      color: #000;
+    }
+
+    #contact a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    iframe {
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+
+      .container > div {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero-box {
+        padding: 40px 20px;
+      }
+
+      .link-btn {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+
+      button {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div>
+      <p><i class="fas fa-dumbbell"></i> ERANOK Sports 🏸</p>
+    </div>
+    <div>
+      <form onsubmit="searchProduct(event)" style="display: inline-block;">
+        <input type="text" id="searchBox" placeholder="Search" required />
+        <button type="submit" class="search-btn"><i class="fas fa-search"></i> Search</button>
+        <button type="button" class="shop" onclick="goToShop()"><i class="fas fa-store"></i> Shop</button>
+      </form>
+      <button type="button" class="signin-btn" onclick="goTosignin()"><i class="fas fa-user"></i> Signin/Register</button>
+      <button class="link-btn" onclick="goTofitness()"><i class="fas fa-heartbeat"></i> Fitness</button>
+      <button class="link-btn" onclick="goToMens()"><i class="fas fa-male"></i> Mens</button>
+      <button class="link-btn" onclick="goToKids()"><i class="fas fa-child"></i> Kids</button>
+      <button class="link-btn" onclick="goToWomens()"><i class="fas fa-female"></i> Womens</button>
+      <button class="link-btn" onclick="location.href='about.html'">
+        <i class="fas fa-info-circle"></i> About Us
+       </button>
+      <button class="link-btn" onclick="document.getElementById('contact').scrollIntoView()"><i class="fas fa-phone"></i> Contact</button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-box">
+      <h1>Welcome to My Badminton Store</h1>
+      <p>Your one-stop destination for sportswear, gear, and more.</p>
+      <button class="shop" onclick="goToShop()"><i class="fas fa-shopping-cart"></i> Start Shopping</button>
+    </div>
+  </div>
+
+  <div id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>
+      We are passionate about badminton and committed to providing top-quality sportswear and accessories. At Dawood's ERANOK Sports, our mission is to equip every player, beginner or pro, with the right gear at the best price.
+    </p>
+  </div>
+
+  <div id="contact" class="about-section">
+    <h2>Contact Us</h2>
+    <p><strong>Phone:</strong> 8328614053</p>
+    <p><strong>Email:</strong> <a href="mailto:srbadmintonhouse@gmail.com">srbadmintonhouse@gmail.com</a></p>
+    <p><strong>Address:</strong> LB Nagar, 1st line, Kakani Rd, behind Vasavi Cloth Market, Guntur, Andhra Pradesh 522001</p>
+    <div style="margin-top: 30px;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119162.29755370354!2d80.3734947!3d16.3066525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a75fd3b7d78a3%3A0x97b3c29dbf62ffb8!2sSR%20BADMINTON%20HOUSE!5e0!3m2!1sen!2sin!4v1722071430455!5m2!1sen!2sin"
+        width="100%"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    function searchProduct(event) {
+      event.preventDefault();
+      const query = document.getElementById("searchBox").value.trim().toLowerCase();
+      if (query === "track pant") {
+        location.assign("trackpant.html");
+      } else if (query === "shirts") {
+        location.assign("shirts.html");
+      } else {
+        alert("No results found for: " + query);
+      }
+    }
+
+    function goToShop() {
+      location.assign("shop.html");
+    }
+
+    function goToMens() {
+      location.assign("Mens.html");
+    }
+
+    function goToWomens() {
+      location.assign("womens.html");
+    }
+
+    function goToKids() {
+      location.assign("kids.html");
+    }
+
+    function goTofitness() {
+      location.assign("fitness.html");
+    }
+
+    function goTosignin() {
+      location.assign("signin.html");
+    }
+  </script>
+</body>
+</html>
