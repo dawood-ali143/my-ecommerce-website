@@ -120,7 +120,8 @@
 
   <div class="blur-overlay">
     <!-- Cart Shortcut -->
-    <a href="cart.html" class="cart-link">🛒 View Cart</a>
+    <a href="#" class="cart-link" onclick="location.assign('cart.html'); return false;">🛒 View Cart</a>
+
 
     <!-- Banner -->
     <div class="banner">Badminton Collection</div>
@@ -169,7 +170,7 @@
 
     function buyNow(index) {
       localStorage.setItem("selectedProduct", JSON.stringify(products[index]));
-      window.location.href = "buy.html";
+      location.assign('buy.html');
     }
   </script>
 </body>
