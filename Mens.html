@@ -12,7 +12,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: url('image/login.jpg') no-repeat center center fixed;
+      background: url('./login.jpg') no-repeat center center fixed;
       background-size: cover;
     }
 
@@ -120,7 +120,7 @@
 
   <div class="blur-overlay">
     <!-- Cart Shortcut -->
-    <a href="cart.html" class="cart-link">🛒 View Cart</a>
+    <a href="/cart.html" class="cart-link">🛒 View Cart</a>
 
     <!-- Banner -->
     <div class="banner">Badminton Collection</div>
@@ -169,7 +169,7 @@
 
     function buyNow(index) {
       localStorage.setItem("selectedProduct", JSON.stringify(products[index]));
-      window.location.href = "buy.html";
+      window.location.href = "/buy.html";
     }
   </script>
 </body>
