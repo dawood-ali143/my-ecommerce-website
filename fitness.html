@@ -21,17 +21,27 @@
       color: white;
       padding: 15px;
       border-radius: 10px;
+      flex-wrap: wrap;
     }
 
     header h1 {
       font-size: 24px;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     nav a {
       color: white;
-      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .cart-icon a {
@@ -49,7 +59,7 @@
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
       padding: 20px;
     }
@@ -149,7 +159,6 @@
       transform: scale(1.05);
     }
 
-    /* Modal for 3D view */
     .modal {
       position: fixed;
       top: 0;
@@ -183,11 +192,11 @@
   <header>
     <h1>Fitness Products 🏋️</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="mens.html">Men</a>
-      <a href="womens.html">Women</a>
-      <a href="kids.html">Kids</a>
-      <a href="shop.html">Shop</a>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="mens.html"><i class="fas fa-male"></i> Men</a>
+      <a href="womens.html"><i class="fas fa-female"></i> Women</a>
+      <a href="kids.html"><i class="fas fa-child"></i> Kids</a>
+      <a href="shop.html"><i class="fas fa-store"></i> Shop</a>
     </nav>
     <div class="cart-icon">
       <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
@@ -197,7 +206,7 @@
   <div class="welcome">Welcome to Eranok Fitness Store 💪</div>
 
   <div class="products">
-    <!-- Example Product -->
+    <!-- Product 1 -->
     <div class="product-card" data-name="Pro Smash Racket" data-price="1299">
       <div class="image-wrapper">
         <img src="./racket0.jpg" alt="Pro Smash Racket" class="product-img" />
@@ -212,7 +221,35 @@
       </div>
     </div>
 
-    <!-- Add more product cards similarly -->
+    <!-- Product 2 -->
+    <div class="product-card" data-name="SpeedFlex Racket" data-price="999">
+      <div class="image-wrapper">
+        <img src="./racket1.jpg" alt="SpeedFlex Racket" class="product-img" />
+        <button class="toggle-3d">View in 3D</button>
+      </div>
+      <h3>SpeedFlex Racket</h3>
+      <p class="brand">Brand: Li-Ning</p>
+      <p>Price: ₹999</p>
+      <div class="buttons">
+        <a href="#" class="add-cart"><i class="fas fa-cart-plus"></i> Add to Cart</a>
+        <a href="buy.html" class="buy-now"><i class="fas fa-bolt"></i> Buy Now</a>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card" data-name="StormEdge Racket" data-price="1799">
+      <div class="image-wrapper">
+        <img src="./racket3.jpg" alt="StormEdge Racket" class="product-img" />
+        <button class="toggle-3d">View in 3D</button>
+      </div>
+      <h3>StormEdge Racket</h3>
+      <p class="brand">Brand: Apacs</p>
+      <p>Price: ₹1799</p>
+      <div class="buttons">
+        <a href="#" class="add-cart"><i class="fas fa-cart-plus"></i> Add to Cart</a>
+                <i class="fas fa-bolt"></i> Buy Now</a>
+      </div>
+    </div>
   </div>
 
   <!-- Modal for 3D view -->
@@ -269,7 +306,7 @@
     });
 
     modalImg.addEventListener('wheel', e => {
-            let scale = 1;
+      let scale = 1;
       scale += e.deltaY * -0.001;
       scale = Math.min(Math.max(0.5, scale), 3);
       modalImg.style.transform = `scale(${scale})`;
@@ -301,4 +338,4 @@
   </script>
 </body>
 </html>
-      e.preventDefault();
+        <a href="buy.html" class="buy-now"><i class="fas
