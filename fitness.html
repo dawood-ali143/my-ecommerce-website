@@ -59,11 +59,21 @@
     }
 
     .product-card {
-      background: white;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
       border-radius: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
       padding: 15px;
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      will-change: transform;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
     }
 
     .product-card img {
@@ -103,6 +113,7 @@
       font-weight: bold;
       text-decoration: none;
       text-align: center;
+      transition: transform 0.2s ease;
     }
 
     .add-cart {
@@ -115,10 +126,12 @@
 
     .add-cart:hover {
       background-color: #218838;
+      transform: scale(1.05);
     }
 
     .buy-now:hover {
       background-color: #0056b3;
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -141,7 +154,7 @@
     <div class="welcome">Welcome to Eranok Fitness Store 💪</div>
 
     <div class="products">
-      <!-- Racket 1 -->
+      <!-- Product Cards -->
       <div class="product-card">
         <img src="./racket0.jpg" alt="Pro Smash Racket">
         <h3>Pro Smash Racket</h3>
@@ -153,7 +166,6 @@
         </div>
       </div>
 
-      <!-- Racket 2 -->
       <div class="product-card">
         <img src="./racket1.jpg" alt="PowerMax Racket">
         <h3>PowerMax Racket</h3>
@@ -165,7 +177,6 @@
         </div>
       </div>
 
-      <!-- Racket 3 -->
       <div class="product-card">
         <img src="./racket2.jpg" alt="TurboForce Racket">
         <h3>TurboForce Racket</h3>
@@ -177,7 +188,6 @@
         </div>
       </div>
 
-      <!-- Shuttle 1 -->
       <div class="product-card">
         <img src="./Cock0.jpg" alt="FeatherPro Shuttle">
         <h3>FeatherPro Shuttle</h3>
@@ -189,7 +199,6 @@
         </div>
       </div>
 
-      <!-- Shuttle 2 -->
       <div class="product-card">
         <img src="./Cock1.webp" alt="SmashX Feather">
         <h3>SmashX Feather</h3>
@@ -201,7 +210,6 @@
         </div>
       </div>
 
-      <!-- Shuttle 3 -->
       <div class="product-card">
         <img src="./Cock2.webp" alt="SpeedPro Shuttle">
         <h3>SpeedPro Shuttle</h3>
@@ -214,5 +222,24 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = -(y - centerY) / 20;
+        const rotateY = (x - centerX) / 20;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg)
+      });
+    });
+  </script>
 </body>
 </html>
