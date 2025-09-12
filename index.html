@@ -14,11 +14,12 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       color: white;
       min-height: 100vh;
       overflow-x: hidden;
       position: relative;
+      background-color: #000;
     }
 
     .bg-wrapper {
@@ -41,10 +42,12 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 10px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px 25px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .container > div {
@@ -52,12 +55,12 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
     }
 
     .container p {
       font-weight: bold;
-      font-size: 22px;
+      font-size: 24px;
+      color: #ffdd57;
     }
 
     input[type="text"] {
@@ -68,7 +71,7 @@
     }
 
     button {
-      padding: 8px 10px;
+      padding: 8px 12px;
       margin: 5px;
       font-size: 14px;
       border: none;
@@ -77,24 +80,19 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       background-color: #ff5722;
       color: white;
+      transition: 0.3s ease;
     }
 
     button:hover {
       background-color: #ffffff;
       color: #000;
+      transform: scale(1.05);
     }
 
-    .search-btn {
-      background-color: #4caf50;
-    }
-
-    .signin-btn {
-      background-color: #2196f3;
-    }
-
+    .search-btn { background-color: #4caf50; }
+    .signin-btn { background-color: #2196f3; }
     .link-btn {
       background: none;
       border: none;
@@ -124,12 +122,13 @@
     }
 
     .hero-box h1 {
-      font-size: 36px;
+      font-size: 40px;
       margin-bottom: 20px;
+      color: #ffdd57;
     }
 
     .hero-box p {
-      font-size: 18px;
+      font-size: 20px;
       margin-bottom: 30px;
     }
 
@@ -138,42 +137,40 @@
       padding: 12px 25px;
     }
 
-    .about-section,
-    #contact {
+    .section-box {
       background-color: #007BFF;
       color: #ffffff;
-      padding: 60px 20px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      padding: 50px 20px;
       border-radius: 20px;
+      max-width: 900px;
+      margin: 60px auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      text-align: center;
     }
 
-    .about-section h2,
-    #contact h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: #ffffff;
+    .section-box h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
     }
 
-    .about-section p,
-    #contact p {
+    .section-box p {
       font-size: 16px;
       max-width: 700px;
       margin: auto;
-      color: #ffffff;
+      margin-bottom: 10px;
     }
 
-    #contact a {
+    .section-box a {
       color: #ffffff;
       text-decoration: underline;
     }
 
-    #contact a:hover {
+    .section-box a:hover {
       color: #ffdd57;
     }
 
     iframe {
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.3);
       width: 100%;
       height: 350px;
@@ -181,10 +178,6 @@
     }
 
     @media (max-width: 768px) {
-      .container {
-        padding: 10px;
-      }
-
       .container > div {
         flex-direction: column;
         gap: 10px;
@@ -192,11 +185,6 @@
 
       .hero-box {
         padding: 40px 20px;
-      }
-
-      .link-btn {
-        font-size: 14px;
-        margin: 5px 0;
       }
 
       button {
@@ -243,63 +231,63 @@
     </div>
   </div>
 
-  <div id="about" class="about-section">
-    <h2>About Us</h2>
+  <div id="about" class="section-box">
+    <h2><i class="fas fa-info-circle"></i> About Us</h2>
     <p>
       We are passionate about badminton and committed to providing top-quality sportswear and accessories. At Dawood's ERANOK Sports, our mission is to equip every player—beginner or pro—with the right gear at the best price.
     </p>
   </div>
 
-  <div id="contact" class="about-section">
-    <h2>Contact Us</h2>
+  <div id="contact" class="section-box">
+    <h2><i class="fas fa-phone"></i> Contact Us</h2>
     <p><strong>Phone:</strong> 8328614053</p>
     <p><strong>Email:</strong> <a href="mailto:srbadmintonhouse@gmail.com">srbadmintonhouse@gmail.com</a></p>
     <p><strong>Address:</strong> LB Nagar, 1st line, Kakani Rd, behind Vasavi Cloth Market, Guntur, Andhra Pradesh 522001</p>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119162.29755370354!2d80.3734947!3d16.3066525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m      !1m2!1s0x3a4a75fd3b7d78a3%3A0x97b3c29dbf62ffb8!2sSR%20BADMINTON%20HOUSE!5e0!3m2!1sen!2sin!4v1722071430455!5m2!1sen!2sin"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
+      src="https://www.google.com/maps/embed?pb=!    !1m2!1s0x3a4a75fd3b7d78a3%3A0x97b3c29dbf62ffb8!2sSR%20Badminton%20House!5e0!3m2!1sen!2sin!4v1722071430455!5m2!1sen!2sin"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
 
-  <script>
-    function searchProduct(event) {
-      event.preventDefault();
-      const query = document.getElementById("searchBox").value.trim().toLowerCase();
-      if (query === "track pant") {
-        location.assign("trackpant.html");
-      } else if (query === "shirts") {
-        location.assign("shirts.html");
-      } else {
-        alert("No results found for: " + query);
-      }
+<script>
+  function searchProduct(event) {
+    event.preventDefault();
+    const query = document.getElementById("searchBox").value.trim().toLowerCase();
+    if (query === "track pant") {
+      location.assign("trackpant.html");
+    } else if (query === "shirts") {
+      location.assign("shirts.html");
+    } else {
+      alert("No results found for: " + query);
     }
+  }
 
-    function goToShop() {
-      location.assign("shop.html");
-    }
+  function goToShop() {
+    location.assign("shop.html");
+  }
 
-    function goToMens() {
-      location.assign("mens.html");
-    }
+  function goToMens() {
+    location.assign("mens.html");
+  }
 
-    function goToWomens() {
-      location.assign("womens.html");
-    }
+  function goToWomens() {
+    location.assign("womens.html");
+  }
 
-    function goToKids() {
-      location.assign("kids.html");
-    }
+  function goToKids() {
+    location.assign("kids.html");
+  }
 
-    function goTofitness() {
-      location.assign("fitness.html");
-    }
+  function goTofitness() {
+    location.assign("fitness.html");
+  }
 
-    function goTosignin() {
-      location.assign("signin.html");
-    }
-  </script>
+  function goTosignin() {
+    location.assign("signin.html");
+  }
+</script>
 
 </body>
 </html>
