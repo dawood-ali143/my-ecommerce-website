@@ -31,7 +31,7 @@
 
     nav {
       display: flex;
-      gap: 15px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
@@ -42,11 +42,57 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a[href="index.html"] {
+      background-color: #6c757d;
+    }
+    nav a[href="index.html"]:hover {
+      background-color: #5a6268;
+    }
+
+    nav a[href="mens.html"] {
+      background-color: #007bff;
+    }
+    nav a[href="mens.html"]:hover {
+      background-color: #0056b3;
+    }
+
+    nav a[href="womens.html"] {
+      background-color: #e83e8c;
+    }
+    nav a[href="womens.html"]:hover {
+      background-color: #c82362;
+    }
+
+    nav a[href="kids.html"] {
+      background-color: #ffc107;
+      color: black;
+    }
+    nav a[href="kids.html"]:hover {
+      background-color: #e0a800;
+    }
+
+    nav a[href="shop.html"] {
+      background-color: #17a2b8;
+    }
+    nav a[href="shop.html"]:hover {
+      background-color: #117a8b;
     }
 
     .cart-icon a {
+      background-color: #28a745;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
       color: white;
-      font-size: 20px;
+    }
+    .cart-icon a:hover {
+      background-color: #218838;
     }
 
     .welcome {
@@ -229,7 +275,7 @@
       </div>
       <h3>SpeedFlex Racket</h3>
       <p class="brand">Brand: Li-Ning</p>
-      <p>Price: ₹999</p>
+            <p>Price: ₹999</p>
       <div class="buttons">
         <a href="#" class="add-cart"><i class="fas fa-cart-plus"></i> Add to Cart</a>
         <a href="buy.html" class="buy-now"><i class="fas fa-bolt"></i> Buy Now</a>
@@ -239,7 +285,7 @@
     <!-- Product 3 -->
     <div class="product-card" data-name="StormEdge Racket" data-price="1799">
       <div class="image-wrapper">
-        <img src="./racket3.jpg" alt="StormEdge Racket" class="product-img" />
+        <img src="./racket2.jpg" alt="StormEdge Racket" class="product-img" />
         <button class="toggle-3d">View in 3D</button>
       </div>
       <h3>StormEdge Racket</h3>
@@ -247,7 +293,7 @@
       <p>Price: ₹1799</p>
       <div class="buttons">
         <a href="#" class="add-cart"><i class="fas fa-cart-plus"></i> Add to Cart</a>
-                <i class="fas fa-bolt"></i> Buy Now</a>
+        <a href="buy.html" class="buy-now"><i class="fas fa-bolt"></i> Buy Now</a>
       </div>
     </div>
   </div>
@@ -338,4 +384,3 @@
   </script>
 </body>
 </html>
-        <a href="buy.html" class="buy-now"><i class="fas
